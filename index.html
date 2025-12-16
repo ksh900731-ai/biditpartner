@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>비딧 파트너 - 하루 1시간, 월 30만원+</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0E2B3A;
+      --primary-light: #2C5368;
+      --accent: #70A4C4;
+      --accent-bright: #4ECDC4;
+      --kakao: #FEE500;
+      --kakao-hover: #FDD835;
+      --white: #FFFFFF;
+      --gray-50: #F8FAFC;
+      --gray-100: #F1F5F9;
+      --gray-200: #E2E8F0;
+      --gray-400: #94A3B8;
+      --gray-600: #475569;
+      --gray-800: #1E293B;
+      --danger: #EF4444;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--gray-800);
+      line-height: 1.6;
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ===== SECTION 1: HERO ===== */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, #3D6B7D 100%);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 80%;
+      height: 200%;
+      background: radial-gradient(ellipse, rgba(78, 205, 196, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content {
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(78, 205, 196, 0.2);
+      color: var(--accent-bright);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 24px;
+      border: 1px solid rgba(78, 205, 196, 0.3);
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .hero-title .highlight {
+      color: var(--accent-bright);
+      position: relative;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(18px, 2.5vw, 22px);
+      color: var(--accent);
+      margin-bottom: 40px;
+      font-weight: 400;
+      opacity: 0.9;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--kakao);
+      color: #3C1E1E;
+      padding: 18px 36px;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(254, 229, 0, 0.3);
+    }
+
+    .hero-cta:hover {
+      background: var(--kakao-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(254, 229, 0, 0.4);
+    }
+
+    .hero-cta svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      animation: fadeInRight 0.8s ease-out 0.2s both;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 24px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+      object-fit: cover;
+    }
+
+    .hero-float-card {
+      position: absolute;
+      background: var(--white);
+      padding: 16px 20px;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .hero-float-card.card-1 {
+      bottom: 20%;
+      left: -30px;
+      animation-delay: 0s;
+    }
+
+    .hero-float-card.card-2 {
+      top: 15%;
+      right: -20px;
+      animation-delay: 1.5s;
+    }
+
+    .float-card-title {
+      font-size: 12px;
+      color: var(--gray-400);
+      margin-bottom: 4px;
+    }
+
+    .float-card-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .float-card-value.money {
+      color: var(--accent-bright);
+    }
+
+    /* ===== SECTION 2: PROBLEM ===== */
+    .problem {
+      padding: 100px 24px;
+      background: var(--gray-50);
+    }
+
+    .section-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent-bright);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      color: var(--gray-800);
+      margin-bottom: 60px;
+      line-height: 1.3;
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .problem-card {
+      background: var(--white);
+      padding: 32px;
+      border-radius: 20px;
+      border: 1px solid var(--gray-200);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .problem-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .problem-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, #FEE2E2 0%, #FECACA 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    .problem-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gray-800);
+      margin-bottom: 8px;
+    }
+
+    .problem-desc {
+      font-size: 15px;
+      color: var(--gray-600);
+      line-height: 1.6;
+    }
+
+    .problem-x {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 32px;
+      height: 32px;
+      background: var(--danger);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    /* ===== SECTION 3: SOLUTION ===== */
+    .solution {
+      padding: 100px 24px;
+      background: var(--white);
+    }
+
+    .solution-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .solution-image-wrapper {
+      position: relative;
+    }
+
+    .solution-image {
+      width: 100%;
+      max-width: 480px;
+      border-radius: 24px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    }
+
+    .solution-content .section-title {
+      margin-bottom: 40px;
+    }
+
+    .solution-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .solution-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .solution-check {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--accent-bright) 0%, #2DD4BF 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .solution-check svg {
+      width: 20px;
+      height: 20px;
+      color: var(--white);
+    }
+
+    .solution-text h4 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gray-800);
+      margin-bottom: 4px;
+    }
+
+    .solution-text p {
+      font-size: 15px;
+      color: var(--gray-600);
+    }
+
+    /* ===== SECTION 4: TRUST ===== */
+    .trust {
+      padding: 100px 24px;
+      background: linear-gradient(180deg, var(--primary) 0%, var(--primary-light) 100%);
+    }
+
+    .trust .section-label {
+      color: var(--accent);
+    }
+
+    .trust .section-title {
+      color: var(--white);
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .trust-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 40px 32px;
+      border-radius: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .trust-card:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-4px);
+    }
+
+    .trust-icon {
+      width: 72px;
+      height: 72px;
+      background: rgba(78, 205, 196, 0.2);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 36px;
+    }
+
+    .trust-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .trust-desc {
+      font-size: 15px;
+      color: var(--accent);
+      line-height: 1.6;
+    }
+
+    /* ===== SECTION 5: EARLYBIRD ===== */
+    .earlybird {
+      padding: 100px 24px;
+      background: var(--gray-50);
+      text-align: center;
+    }
+
+    .earlybird-box {
+      max-width: 700px;
+      margin: 0 auto;
+      background: var(--white);
+      padding: 60px 48px;
+      border-radius: 32px;
+      border: 2px solid var(--accent-bright);
+      box-shadow: 0 20px 60px rgba(78, 205, 196, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .earlybird-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--accent-bright) 0%, #2DD4BF 50%, var(--accent) 100%);
+    }
+
+    .earlybird-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent-bright) 0%, #2DD4BF 100%);
+      color: var(--white);
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+    }
+
+    .earlybird-title {
+      font-size: clamp(24px, 3.5vw, 32px);
+      font-weight: 800;
+      color: var(--gray-800);
+      margin-bottom: 16px;
+    }
+
+    .earlybird-subtitle {
+      font-size: 18px;
+      color: var(--gray-600);
+      margin-bottom: 40px;
+    }
+
+    .earlybird-benefits {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      margin-bottom: 40px;
+    }
+
+    .earlybird-benefit {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .earlybird-benefit-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--gray-100);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    .earlybird-benefit-text {
+      text-align: left;
+    }
+
+    .earlybird-benefit-text strong {
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--gray-800);
+    }
+
+    .earlybird-benefit-text span {
+      font-size: 14px;
+      color: var(--gray-600);
+    }
+
+    /* ===== SECTION 6: CTA ===== */
+    .cta {
+      padding: 120px 24px;
+      background: linear-gradient(135deg, var(--primary) 0%, #1A3D4D 50%, var(--primary-light) 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2370A4C4' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cta-title {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .cta-subtitle {
+      font-size: 18px;
+      color: var(--accent);
+      margin-bottom: 48px;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--kakao);
+      color: #3C1E1E;
+      padding: 22px 48px;
+      border-radius: 16px;
+      font-size: 20px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 30px rgba(254, 229, 0, 0.35);
+    }
+
+    .cta-button:hover {
+      background: var(--kakao-hover);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 12px 40px rgba(254, 229, 0, 0.45);
+    }
+
+    .cta-button svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .cta-note {
+      margin-top: 24px;
+      font-size: 14px;
+      color: var(--accent);
+      opacity: 0.8;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      padding: 40px 24px;
+      background: var(--gray-800);
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .footer-text {
+      font-size: 14px;
+      color: var(--gray-400);
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 968px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+      }
+
+      .hero-image-wrapper {
+        order: -1;
+      }
+
+      .hero-image {
+        max-width: 350px;
+        margin: 0 auto;
+      }
+
+      .hero-float-card {
+        display: none;
+      }
+
+      .solution-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .solution-image-wrapper {
+        order: -1;
+        text-align: center;
+      }
+
+      .solution-image {
+        max-width: 350px;
+      }
+
+      .trust-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .earlybird-benefits {
+        flex-direction: column;
+        gap: 24px;
+        align-items: center;
+      }
+
+      .problem-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        min-height: auto;
+        padding: 80px 0;
+      }
+
+      .hero-cta,
+      .cta-button {
+        width: 100%;
+        justify-content: center;
+        padding: 16px 24px;
+        font-size: 16px;
+      }
+
+      .earlybird-box {
+        padding: 40px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SECTION 1: HERO -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <span class="hero-badge">🎉 천안·아산 파트너 모집중</span>
+        <h1 class="hero-title">
+          하루 1시간,<br>
+          <span class="highlight">월 30만원+</span>
+        </h1>
+        <p class="hero-subtitle">출근 전에도, 퇴근 후에도, 내 시간에 맞춰서</p>
+        <a href="#" class="hero-cta">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 3C6.48 3 2 6.58 2 11c0 2.76 1.81 5.18 4.5 6.52-.13.47-.44 1.7-.5 1.96-.08.34.12.33.26.24.1-.06 1.62-1.07 2.28-1.5.47.07.96.1 1.46.1 5.52 0 10-3.58 10-8S17.52 3 12 3z"/>
+          </svg>
+          카카오톡으로 시작하기
+        </a>
+      </div>
+      <div class="hero-image-wrapper">
+        <img src="partner_hero.png" alt="비딧 파트너" class="hero-image">
+        <div class="hero-float-card card-1">
+          <div class="float-card-title">오늘 수익</div>
+          <div class="float-card-value money">+12,000원</div>
+        </div>
+        <div class="hero-float-card card-2">
+          <div class="float-card-title">완료 시간</div>
+          <div class="float-card-value">1시간</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: PROBLEM -->
+  <section class="problem">
+    <div class="section-container">
+      <span class="section-label">Problem</span>
+      <h2 class="section-title">부업, 생각보다 쉽지 않죠?</h2>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <span class="problem-x">✕</span>
+          <div class="problem-icon">🛵</div>
+          <h3 class="problem-title">배달 라이더</h3>
+          <p class="problem-desc">날씨 영향, 교통사고 위험, 체력 소모 심함</p>
+        </div>
+        <div class="problem-card">
+          <span class="problem-x">✕</span>
+          <div class="problem-icon">🏪</div>
+          <h3 class="problem-title">편의점 알바</h3>
+          <p class="problem-desc">시간 고정, 장시간 근무, 스케줄 조정 어려움</p>
+        </div>
+        <div class="problem-card">
+          <span class="problem-x">✕</span>
+          <div class="problem-icon">🏠</div>
+          <h3 class="problem-title">가사도우미</h3>
+          <p class="problem-desc">낯선 집 방문 불안, 개인 공간 노출</p>
+        </div>
+        <div class="problem-card">
+          <span class="problem-x">✕</span>
+          <div class="problem-icon">🔍</div>
+          <h3 class="problem-title">프리랜서 청소</h3>
+          <p class="problem-desc">일감 구하기 어려움, 불안정한 수입</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: SOLUTION -->
+  <section class="solution">
+    <div class="section-container">
+      <div class="solution-wrapper">
+        <div class="solution-image-wrapper">
+          <img src="partner_solution.png" alt="여유로운 시간" class="solution-image">
+        </div>
+        <div class="solution-content">
+          <span class="section-label">Solution</span>
+          <h2 class="section-title">비딧은 다릅니다</h2>
+          <ul class="solution-list">
+            <li class="solution-item">
+              <div class="solution-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <div class="solution-text">
+                <h4>내 시간에 맞춰서</h4>
+                <p>출근 전, 퇴근 후, 원하는 시간에만</p>
+              </div>
+            </li>
+            <li class="solution-item">
+              <div class="solution-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <div class="solution-text">
+                <h4>동네에서 가깝게</h4>
+                <p>천안·아산 내 가까운 업장 배정</p>
+              </div>
+            </li>
+            <li class="solution-item">
+              <div class="solution-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <div class="solution-text">
+                <h4>안전한 업장에서</h4>
+                <p>검증된 운동센터, 개인 집 아님</p>
+              </div>
+            </li>
+            <li class="solution-item">
+              <div class="solution-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <div class="solution-text">
+                <h4>바로 정산</h4>
+                <p>완료 즉시 수익 확인, 빠른 정산</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: TRUST -->
+  <section class="trust">
+    <div class="section-container">
+      <span class="section-label">Trust</span>
+      <h2 class="section-title">비딧이 책임집니다</h2>
+      <div class="trust-grid">
+        <div class="trust-card">
+          <div class="trust-icon">🏢</div>
+          <h3 class="trust-title">검증된 업장만</h3>
+          <p class="trust-desc">사업자 확인 완료된<br>안전한 업장만 연결</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon">💰</div>
+          <h3 class="trust-title">정산 100% 보장</h3>
+          <p class="trust-desc">비딧이 중간에서<br>수익 정산 책임</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon">🛡️</div>
+          <h3 class="trust-title">문제 발생 시</h3>
+          <p class="trust-desc">비딧 고객센터에서<br>신속하게 해결</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: EARLYBIRD -->
+  <section class="earlybird">
+    <div class="section-container">
+      <div class="earlybird-box">
+        <span class="earlybird-badge">🚀 EARLY BIRD</span>
+        <h2 class="earlybird-title">먼저 준비하세요</h2>
+        <p class="earlybird-subtitle">지금 신청하면 출시 즉시 안내드려요</p>
+        <div class="earlybird-benefits">
+          <div class="earlybird-benefit">
+            <div class="earlybird-benefit-icon">📢</div>
+            <div class="earlybird-benefit-text">
+              <strong>출시 알림</strong>
+              <span>앱 오픈하면 바로 연락</span>
+            </div>
+          </div>
+          <div class="earlybird-benefit">
+            <div class="earlybird-benefit-icon">📚</div>
+            <div class="earlybird-benefit-text">
+              <strong>첫 교육 우선</strong>
+              <span>파트너 교육 먼저 받기</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: CTA -->
+  <section class="cta">
+    <div class="cta-content">
+      <h2 class="cta-title">지금 바로 시작하세요</h2>
+      <p class="cta-subtitle">카카오톡 친구 추가하고 출시 알림 받기</p>
+      <a href="#" class="cta-button">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 3C6.48 3 2 6.58 2 11c0 2.76 1.81 5.18 4.5 6.52-.13.47-.44 1.7-.5 1.96-.08.34.12.33.26.24.1-.06 1.62-1.07 2.28-1.5.47.07.96.1 1.46.1 5.52 0 10-3.58 10-8S17.52 3 12 3z"/>
+        </svg>
+        카카오톡 친구 추가
+      </a>
+      <p class="cta-note">친구 추가 후 간단한 설문에 응답해주세요</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">BIDIT</div>
+    <p class="footer-text">© 2025 비딧. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
